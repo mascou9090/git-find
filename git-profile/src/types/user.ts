@@ -12,5 +12,6 @@ export type ReposProps = {
   forks: number;
   watchers: number;
   visibility: string;
+  stargazers_count: number;
   default_branch: string;
 }

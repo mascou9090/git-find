@@ -1,0 +1,44 @@
+.better_repo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  flex-direction: column;
+  min-width: 350px;
+}
+
+.repo {
+  width: 400px;
+  border: 1px solid #fff;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  background-color: #2b3566;
+}
+
+.repo h2 {
+  font-size: 1.8rem;
+}
+
+.repo p {
+  font-size: 0.8rem;
+  color: #9da5d1;
+}
+
+.icons {
+  display: flex;
+  margin: .5rem;
+  justify-content: end;
+}
+
+.icons p {
+  display: flex;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.icons svg {
+  margin:.1rem;
+  fill: #7858ec75;
+  font-size: 1.2rem;
+}
