@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Error } from '../components/Error';
+import { Load } from '../components/Load';
 import { Search } from '../components/Search';
 import { User } from '../components/User'
 import { UserProps } from '../types/user';
@@ -10,10 +11,12 @@ export const Home = () => {
 
   const [user, setUser] = useState<UserProps | null>(null);
   const [err, setErr] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const loadUser = async (userName: string) => {
 
     try {
+      setLoader(true);
       setErr(false);
       setUser(null);
 
@@ -32,6 +35,7 @@ export const Home = () => {
       };
 
       setUser(userData);
+      setLoader(false);
       
     } catch (e) {
       console.log(`Error of the type: ${e}`);
@@ -42,6 +46,7 @@ export const Home = () => {
   return (
     <div>
       <Search loadUser={loadUser} />
+      {loader && <Load />}
       {user && <User {...user} />}
       {err && <Error />}
     </div>

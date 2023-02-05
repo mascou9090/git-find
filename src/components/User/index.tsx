@@ -6,8 +6,6 @@ import { useState } from "react";
 
 export const User = ({ login, avatar_url, location, following, followers }: UserProps) => {
 
-  const [requestOfRepo, setRequestOfRepo] = useState(false);
-
   return (
     <div className={classes.user}>
       <img src={avatar_url} alt={login} />
@@ -23,7 +21,8 @@ export const User = ({ login, avatar_url, location, following, followers }: User
           <p>Seguidores</p>
           <p className={classes.number}>{followers}</p>
         </div>
-        <div>Seguindo
+        <div>
+          <p>Seguindo</p>
           <p className={classes.number}>{following}</p>
         </div>
       </div>

@@ -35,10 +35,6 @@ export const Repo = () => {
     }
     
     ondataRepos(paranNameUser);
-
-    const changeTheBetterRepo = (arr: ReposProps) => {
-      for (let i = 0; i < arr.length; i++)
-    }
     
   }, []);
 
