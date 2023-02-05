@@ -7,14 +7,10 @@ import classes from './Repo.module.css';
 import { Load } from "../Load";
 
 
-
-
-
 export const Repo = () => {
 
   const [repos, setRepos] = useState<Array<ReposProps>>([]);
   const [loader, setLoader] = useState(false);
-  const [betterRepos, setBetterRepos] = useState<Array<ReposProps>>();
 
   const { paranNameUser } = useParams();
 
