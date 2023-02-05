@@ -4,10 +4,7 @@ import classes from './Search.module.css';
 
 type SearProps = {
   loadUser: (userName: string) => Promise<void>
-}
-
-
-
+};
 
 export const Search = ({loadUser}: SearProps) => {
   
