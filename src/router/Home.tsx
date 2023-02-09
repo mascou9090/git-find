@@ -21,20 +21,21 @@ export const Home = () => {
       setUser(null);
 
       const res = await fetch(`https://api.github.com/users/${userName}`);
-      const data = await res.json();
-
-      if(res.status === 404) {
+      
+      if(!res.ok) {
         setErr(true);
         return;
       }
+      const userData = await res.json();
 
-      const { avatar_url, login, location, followers, following } = data;
+      setUser({
+        avatar_url: userData.avatar_url,
+        login: userData.login,
+        location: userData.location,
+        followers: userData.followers,
+        following: userData.following
+      });
 
-      const userData: UserProps = {
-        avatar_url, login, location, followers, following
-      };
-
-      setUser(userData);
       setLoader(false);
       
     } catch (e) {

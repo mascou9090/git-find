@@ -4,7 +4,6 @@ import App from './App'
 import './index.css'
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// Pages
 import { Home } from './router/Home';
 import { Repo } from './components/Repo';
 

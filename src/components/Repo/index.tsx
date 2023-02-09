@@ -14,25 +14,27 @@ export const Repo = () => {
 
   const { paranNameUser } = useParams();
 
-  useEffect(() => {
-    const ondataRepos = async (userName: string | undefined) => {
-      try {
-        setLoader(true);
 
-        const res = await fetch(`https://api.github.com/users/${userName}/repos`);
-        const data = await res.json();
-
-        setRepos([...data]);
-        setLoader(false);
-
-      } catch (e) {
-        console.log(`Error ${e}`);
-      }
+  const fetchUserProps = async (userName: string | undefined): Promise<ReposProps[]> => {
+    try {
+      const res = await fetch(`https://api.github.com/users/${userName}/repos`);
+      return await res.json();
+    } catch (err) {
+      console.log(`Error ${err}`);
+      throw(err);
     }
-    
-    ondataRepos(paranNameUser);
-    
-  }, []);
+  }
+
+  const handleFetchRepos = async (userName: string | undefined) => {
+    setLoader(true);
+    const dataRepos = await fetchUserProps(userName);
+    setRepos([...dataRepos]);
+    setLoader(false);
+  }
+
+  useEffect(() => {
+    handleFetchRepos(paranNameUser)
+  }, [paranNameUser]);
 
 
   return (
